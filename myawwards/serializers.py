@@ -4,9 +4,11 @@ from django.contrib.auth.models import User
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
+    profile = serializers.HyperlinkedRelatedField(read_only=True, view_name='profile-detail')
+
     class Meta:
         model = User
-        fields = ['id', 'url', 'username']
+        fields = ['id', 'url', 'username', 'profile']
 
 
 class ProfileSerializer(serializers.ModelSerializer):
