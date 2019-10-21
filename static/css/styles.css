@@ -45,3 +45,14 @@ body{
 .form-text, .asteriskField{
     display:none;
 }
+
+.alert{
+    margin:0;
+    padding:0;
+}
+.alert ul li {
+    list-style-type: none;
+    padding:0;
+    margin:0;
+    font-size:12px;
+}
