@@ -38,4 +38,4 @@ class UpdateUserProfileForm(forms.ModelForm):
 class RatingsForm(forms.ModelForm):
     class Meta:
         model = Rating
-        exclude = ['post', 'user', 'score']
+        fields = ['design', 'usability', 'content']
