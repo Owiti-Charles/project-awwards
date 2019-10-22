@@ -14,7 +14,7 @@ def index(request):
         form = PostForm(request.POST)
         if form.is_valid():
             post = form.save(commit=False)
-            post.user = request.user.profile
+            post.user = request.user
             post.save()
     else:
         form = PostForm()
