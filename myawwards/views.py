@@ -21,7 +21,7 @@ def index(request):
 
     try:
         posts = Post.objects.all()
-        print(posts)
+        posts = posts[::-1]
     except Post.DoesNotExist:
         posts = None
     return render(request, 'index.html', {'posts': posts, 'form': form})
@@ -87,12 +87,12 @@ def edit_profile(request, username):
     return render(request, 'edit.html', params)
 
 
+@login_required(login_url='login')
 def project(request, post):
     post = Post.objects.get(title=post)
     ratings = Rating.objects.filter(user=request.user, post=post).first()
-    print('*************',ratings)
     rating_status = None
-    if ratings == None:
+    if ratings is None:
         rating_status = False
     else:
         rating_status = True
