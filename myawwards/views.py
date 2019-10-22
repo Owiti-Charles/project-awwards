@@ -1,5 +1,5 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import SignupForm, PostForm, UpdateUserForm, UpdateUserProfileForm, RatingsForm
 from rest_framework import viewsets
 from .models import Profile, Post, Rating
@@ -57,6 +57,16 @@ def profile(request, username):
     return render(request, 'profile.html')
 
 
+def user_profile(request, username):
+    user_prof = get_object_or_404(User, username=username)
+    if request.user == user_prof:
+        return redirect('profile', username=request.user.username)
+    params = {
+        'user_prof': user_prof,
+    }
+    return render(request, 'userprofile.html', params)
+
+
 @login_required(login_url='login')
 def edit_profile(request, username):
     user = User.objects.get(username=username)
@@ -79,6 +89,13 @@ def edit_profile(request, username):
 
 def project(request, post):
     post = Post.objects.get(title=post)
+    ratings = Rating.objects.filter(user=request.user, post=post).first()
+    print('*************',ratings)
+    rating_status = None
+    if ratings == None:
+        rating_status = False
+    else:
+        rating_status = True
     if request.method == 'POST':
         form = RatingsForm(request.POST)
         if form.is_valid():
@@ -89,26 +106,28 @@ def project(request, post):
             post_ratings = Rating.objects.filter(post=post)
 
             design_ratings = [d.design for d in post_ratings]
-            design_average = sum(design_ratings)/len(design_ratings)
+            design_average = sum(design_ratings) / len(design_ratings)
 
             usability_ratings = [us.usability for us in post_ratings]
-            usability_average = sum(usability_ratings)/len(usability_ratings)
+            usability_average = sum(usability_ratings) / len(usability_ratings)
 
             content_ratings = [content.content for content in post_ratings]
-            content_average = sum(content_ratings)/len(content_ratings)
+            content_average = sum(content_ratings) / len(content_ratings)
 
-            score = (design_average + usability_average + content_average)/3
+            score = (design_average + usability_average + content_average) / 3
             print(score)
             rate.design_average = round(design_average, 2)
             rate.usability_average = round(usability_average, 2)
             rate.content_average = round(content_average, 2)
             rate.score = round(score, 2)
             rate.save()
+            return HttpResponseRedirect(request.path_info)
     else:
         form = RatingsForm()
     params = {
         'post': post,
-        'rating_form': form
+        'rating_form': form,
+        'rating_status': rating_status
 
     }
     return render(request, 'project.html', params)

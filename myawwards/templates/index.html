@@ -35,30 +35,36 @@
             </div>
         </div>
     </div>
-    {% if posts %}
-    <div class="templates d-flex flex-row">
-        {% for post in posts %}
-        <div class="card mr-2">
-            <div class="view overlay">
-                <img class="card-img-top" src="{{ post.photo.cdn_url }}"
-                     alt="{{photo.title}}">
-                <a href="{% url 'project' post.title %}">
-                    <div class="mask rgba-white-slight"></div>
-                </a>
+    <div class="row">
+        {% if posts %}
+
+        <div class="templates display">
+            {% for post in posts %}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="view overlay">
+                        <img class="card-img-top" src="{{ post.photo.cdn_url }}"
+                             alt="{{photo.title}}">
+                        <a href="{% url 'project' post.title %}">
+                            <div class="mask rgba-white-slight"></div>
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <h6 class="card-title"><a href="{% url 'project' post.title %}">{{post.title|title}}</a> <a
+                                class="btn btn-sm btn-outline-info" href="{{ post.url }}" style=""> View</a></h6>
+                        <hr>
+                        <p class="card-text "><img src="{{post.user.profile.profile_picture.url}}" class="nav-img mr-2"
+                                                   alt="">
+                            By {{post.user.username|title}} <span style="float:right">{{post.date|date}}</span>
+                        </p>
+                    </div>
+                </div>
             </div>
-            <div class="card-body">
-                <h6 class="card-title"><a href="{% url 'project' post.title %}">{{post.title|title}}</a> <a
-                        class="btn btn-sm btn-outline-info" href="{{ post.url }}" style=""> View</a></h6>
-                <hr>
-                <p class="card-text "><img src="{{post.user.profile.profile_picture.url}}" class="nav-img mr-2" alt="">
-                    By {{post.user.username|title}} <span style="float:right">{{post.date|date}}</span>
-                </p>
-            </div>
+            {% endfor %}
         </div>
 
-        {% endfor %}
+        {% endif %}
     </div>
-    {% endif %}
 
 </div>
 
