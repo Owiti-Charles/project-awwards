@@ -2,7 +2,7 @@
     color:green;
 }
 #nbar{
-    background-color:#52616b;
+    background-color:black;
     color:black;
 }
 .login, #site{
@@ -26,7 +26,7 @@
     width: 30px;
 }
 body{
-    background-color:#d4d7dd;
+    background-color:white;
 }
 #heart{
     float:right;

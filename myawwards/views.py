@@ -134,9 +134,9 @@ def project(request, post):
 
 
 def search_project(request):
-    if 'title' in request.GET and request.GET['title']:
+    if request.method == 'GET':
         title = request.GET.get("title")
-        results = Post.search_project(title)
+        results = Post.objects.filter(title__icontains=title).all()
         print(results)
         message = f'name'
         params = {
