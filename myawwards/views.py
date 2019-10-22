@@ -7,6 +7,7 @@ from .serializers import ProfileSerializer, UserSerializer
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.models import User
 from django.http import HttpResponseRedirect
+import random
 
 
 def index(request):
@@ -22,9 +23,12 @@ def index(request):
     try:
         posts = Post.objects.all()
         posts = posts[::-1]
+        a_post = random.randint(0, len(posts)-1)
+        random_post = posts[a_post]
+        print(random_post)
     except Post.DoesNotExist:
         posts = None
-    return render(request, 'index.html', {'posts': posts, 'form': form})
+    return render(request, 'index.html', {'posts': posts, 'form': form, 'random_post': random_post})
 
 
 class ProfileViewSet(viewsets.ModelViewSet):
