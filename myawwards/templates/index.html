@@ -11,24 +11,36 @@
 
     <div class="bg" style="background-image: url({{ random_post.photo.cdn_url }})">
         <div class="over container-fluid" style="margin:0px; padding:0px;">
-            <div class=" " style="padding-top:14%; margin:0px; padding-bottom:14%;">
+            <div class=" ">
                 <div class="row">
-                    <div class="col-md-3"></div>
-                    <div class="col-md-6 d-flex flex-row mx-auto">
-                        {% for rating in random_post.ratings.all %}
-                        {% if forloop.counter is random_post.ratings.all.count %}
-                        <h3 id="design">{{ rating.design_average}}<br>
-                            <span class="rates">design</span>
-                        </h3>
-                        <h3 id="usable" class="mx-auto">{{ rating.usability_average }}<br>
-                            <span class="rates">usability</span>
-                        </h3>
-                        <h3 id="content">{{ rating.content_average }}<br>
-                            <span class="rates">content</span></h3>
-                        <h3 id="score">{{ rating.score }}<br>
-                            <span class="rates">score</span></h3>
-                        {% endif %}
-                        {% endfor %}
+                    <div class="col-md-3" style="padding-top:4%;">
+                        <p class="text-white" style="margin-left:20%"><strong>Site of the Day</strong>
+                            {{random_post.date|date}}</p>
+                        <div class="visit" style="margin-left:20%; padding-top:90%">
+                            <a class="btn btn-sm btn-info" href="{{random_post.url}}">visit</a><a
+                                class="btn btn-sm btn-white" href="">collect</a>
+                        </div>
+
+                    </div>
+                    <div class="col-md-6 " style="padding-top:6%; margin:0px; padding-bottom:14%;">
+                        <h2 class="text-white" style="margin-left:70px">{{random_post.title}}</h2>
+                        <h4 class="text-white" style="margin-left:70px">By {{random_post.user.username}}</h4>
+                        <div class="d-flex flex-row mx-auto">
+                            {% for rating in random_post.ratings.all %}
+                            {% if forloop.counter is random_post.ratings.all.count %}
+                            <h6 id="des" class="text-center mt-4">{{ rating.design_average}}<br>
+                                <span class="ting text-center">design</span>
+                            </h6>
+                            <h6 id="use" class="text-center mt-4">{{ rating.usability_average }}<br>
+                                <span class="ting text-center">usability</span>
+                            </h6>
+                            <h6 id="conten" class="text-center mt-4">{{ rating.content_average }}<br>
+                                <span class="ting text-center">content</span></h6>
+                            <h6 id="score" class="text-center mt-4">{{ rating.score }}<br>
+                                <span class="ting text-center">score</span></h6>
+                            {% endif %}
+                            {% endfor %}
+                        </div>
                     </div>
                     <div class="col-md-3"></div>
                 </div>
@@ -37,6 +49,7 @@
     </div>
 
     <div class="container">
+        <h2 class="mt-4">Websites available</h2>
         <button class="btn btn-info btn-sm" id="site" data-toggle="modal" data-target=".bd-example-modal-xl"> Submit
             your
             site

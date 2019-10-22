@@ -52,7 +52,7 @@
                     <h3 class="D-block mx-auto">Ratings Scores</h3>
                     {% for rating in post.ratings.all %}
                     {% if forloop.counter is post.ratings.all.count %}
-                    <a class="btn btn-info btn-sm" id="score"><h5>{{ rating.score }}</h5>
+                    <a class="btn btn-info btn-sm" id=""><h5>{{ rating.score }}</h5>
                         <span class="sc">Average Score</span>
                     </a>
                     <a class="btn btn-outline-success btn-sm" id=""><h5>{{ rating.design_average }}</h5>
