@@ -17,15 +17,15 @@
                             <div class="col-md-6 d-flex flex-row mx-auto" style="margin-top:20%">
                                 {% for rating in post.ratings.all %}
                                 {% if forloop.counter is post.ratings.all.count %}
-                                <h3 id="design">{{ rating.design_average}}<br>
+                                <div id="design">{{ rating.design_average}}<br>
                                     <span class="rates">design</span>
-                                </h3>
-                                <h3 id="usable" class="mx-auto">{{ rating.usability_average }}<br>
+                                </div>
+                                <div id="usable" class="mx-auto">{{ rating.usability_average }}<br>
                                     <span class="rates">usability</span>
-                                </h3>
-                                <h3 id="content">{{ rating.content_average }}<br>
+                                </div>
+                                <div id="contente">{{ rating.content_average }}<br>
                                     <span class="rates">content</span>
-                                </h3>
+                                </div>
                                 {% endif %}
                                 {% endfor %}
                             </div>
