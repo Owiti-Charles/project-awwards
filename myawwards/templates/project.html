@@ -37,8 +37,8 @@
             </a>
         </div>
         <div class="card-body">
-            <h6 class="card-title"><strong>{{post.title|title}}</strong>
-                <a href="{{ post.url }}" style="float:right" class="btn btn-sm btn-info mr-4"> Visit </a></h6>
+            <h5 class="card-title"><strong>{{post.title|title}}</strong>
+                <a href="{{ post.url }}" style="float:right" class="btn btn-sm btn-info mr-4"> Visit </a></h5>
             <p>by <span><a href="{% url 'userprofile' post.user.username %}" id="usern" class="mr-2">{{ post.user.username|title }}</a></span>({{post.user.profile.location}})
             </p>
             <p>{{ post.description }}</p>
@@ -52,10 +52,10 @@
                     <h3 class="D-block mx-auto">Ratings Scores</h3>
                     {% for rating in post.ratings.all %}
                     {% if forloop.counter is post.ratings.all.count %}
-                    <a class="btn btn-info btn-sm" id=""><h5>{{ rating.score }}</h5>
+                    <a class="btn btn-info btn-sm" ><h5>{{ rating.score }}</h5>
                         <span class="sc">Average Score</span>
                     </a>
-                    <a class="btn btn-outline-success btn-sm" id=""><h5>{{ rating.design_average }}</h5>
+                    <a class="btn btn-outline-success btn-sm" ><h5>{{ rating.design_average }}</h5>
                         <span class="sc">Design Average</span>
                     </a>
                     <a class="btn btn-outline-primary btn-sm" id="u"><h5>{{ rating.usability_average }}</h5>

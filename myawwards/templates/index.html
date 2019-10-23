@@ -18,13 +18,13 @@
                 <div class="box-site-head js-single-element"
                      data-model="{&quot;likes&quot;:55,&quot;id&quot;:38186,&quot;images&quot;:{&quot;thumbnail&quot;:&quot;submissions\/2019\/10\/5da42f4e8967d075754281.jpg&quot;},&quot;slug&quot;:&quot;laguta-laguta&quot;,&quot;title&quot;:&quot;Laguta &amp; Laguta&quot;,&quot;createdAt&quot;:1571616000,&quot;tags&quot;:[&quot;Design Agencies&quot;,&quot;Mobile &amp; Apps&quot;,&quot;Web &amp; Interactive&quot;,&quot;Flat Design&quot;,&quot;Minimal&quot;,&quot;Portfolio&quot;,&quot;Responsive Design&quot;,&quot;Black&quot;,&quot;Red&quot;,&quot;White&quot;,&quot;Gallery&quot;,&quot;GSAP Animation&quot;,&quot;UI design&quot;,&quot;Nuxt.js&quot;],&quot;type&quot;:&quot;submission&quot;}">
                     <div class="box-bg has-tablet">
-                        <a href="/sites/laguta-laguta">
+                        <a href="{% url 'project' random_post.title %}">
                             <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAB2wAAAK8AQMAAAAZMt0LAAAAA1BMVEUAAACnej3aAAAAAXRSTlMAQObYZgAAANJJREFUeNrswYEAAAAAgKD9qRepAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABg9uBAAAAAAADI/7URVFVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVWlPTgkAAAAABD0/7UzLAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAKNogABue9NggAAAABJRU5ErkJggg=="
                                  data-src="{{random_post.photo.cdn_url}}" width="1900" height="600" class="lazy"/>
                         </a>
                     </div>
                     <div class="box-content over">
-                        <a href="/sites/laguta-laguta" class="site-link" aria-label="Laguta &amp; Laguta"></a>
+                        <a href="{% url 'project' random_post.title %}" class="site-link" aria-label="Laguta &amp; Laguta"></a>
                         <div class="inner vertical-center">
                             <div class="box-info">
                                 <div class="row mx-auto D-block">
@@ -121,18 +121,14 @@
     </div>
 
     <div class="container">
-        <h2 class="mt-4">Websites available</h2>
-        <button class="btn btn-info btn-sm" id="site" data-toggle="modal" data-target=".bd-example-modal-xl"> Submit
-            your
-            site
-        </button>
+        <h2 class="mt-4">Available Websites </h2>
         <div class="modal fade bd-example-modal-xl" id="ModalCenter" tabindex="-1" role="dialog"
              aria-labelledby="exampleModalCenterTitle"
              aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                        <h5 class="modal-title" id="exampleModalLongTitle">Upload Project</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -164,8 +160,8 @@
                             </a>
                         </div>
                         <div class="card-body">
-                            <h6 class="card-title"><a href="{% url 'project' post.title %}">{{post.title|title}}</a> <a
-                                    class="btn btn-sm btn-outline-info" href="{{ post.url }}" style=""> View</a></h6>
+                            <h4 class="card-title"><a href="{% url 'project' post.title %}">{{post.title|title}}</a> <a
+                                    class="btn btn-sm btn-outline-info" href="{{ post.url }}" style=""> View</a></h4>
                             <hr>
                             <p class="card-text "><img src="{{post.user.profile.profile_picture.url}}"
                                                        class="nav-img mr-2"

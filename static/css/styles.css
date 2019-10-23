@@ -77,64 +77,42 @@ body{
     color:white;
     border: 3px solid orange;
     border-radius: 50%;
-    padding: 20px;
-    margin-right:20px;
+    height:90px;
+    width:90px;
+    padding-left:20px;
+    padding-top:20px;
+    margin-right:10px;
     margin-left:70px;
 }
 .site-link{
     padding-top:-20px;!important
 
 }
-#des{
-    color:white;
-    border: 3px solid orange;
-    border-radius: 50%;
-    padding: 16px;
-    font-size:12px;
-    margin-right:10px;
-    margin-left:70px;
-}
+
 #usable{
     color:white;
     border: 3px solid blue;
     border-radius: 50%;
-    padding: 20px;
-    margin-right:20px;
-}
-
-#use{
-    color:white;
-    border: 3px solid blue;
-    border-radius: 50%;
-    padding: 6px;
-    font-size:12px;
+    padding-left:20px;
+    padding-top:20px;
+    height:90px;
+    width:90px;
     margin-right:10px;
 }
+
 #contente{
     color:white;
     border: 3px solid green;
     border-radius: 50%;
-    padding: 20x;
+    height:90px;
+    width:90px;
+    padding-left:20px;
+    padding-top:20px;
     margin-right:20px;
 }
-#conten{
-    color:white;
-    border: 3px solid green;
-    border-radius: 50%;
-    padding: 6px;
-    font-size:12px;
-    margin-right:10px;
-}
-#score{
-    color:white;
-    border: 3px solid red;
-    border-radius: 50%;
-    padding: 14px;
-    font-size:12px;
-    margin-right:10px;
-}
+
 .rates{
-    font-size:16px;
+    font-size:14px;
     font-weight:bolder;
 }
 .ting{
