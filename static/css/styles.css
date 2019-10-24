@@ -84,9 +84,34 @@ body{
     margin-right:10px;
     margin-left:70px;
 }
+.des,.des1,.des2,.des3{
+    color:white;
+    border-radius: 50%;
+    height:78px;
+    width:78px;
+    padding-top:30%;
+    font-size:17px;
+}
+.des{
+    border: 3px solid orange;
+}
+.des1{
+    border: 3px solid brown;
+}
+.des2{
+    border: 3px solid blue;
+}
+.des3{
+    border: 3px solid green;
+}
 .site-link{
     padding-top:-20px;!important
 
+}
+.mi{
+    background-position:center;
+    background-size:cover;
+    background-repeat:no-repeat;
 }
 
 #usable{

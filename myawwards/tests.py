@@ -10,6 +10,12 @@ class TestProfile(TestCase):
     def test_instance(self):
         self.assertTrue(isinstance(self.user, User))
 
+    def test_save_user(self):
+        self.user.save()
+
+    def test_delete_user(self):
+        self.user.delete()
+
     def tearDown(self):
         self.user.delete()
 
