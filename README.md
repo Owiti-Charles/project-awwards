@@ -10,10 +10,10 @@ This project allows users to post their projects for other users to rate accordi
 ## Screenshots 
 ###### Home page
  
-<img src="">
+<img src="https://ucarecdn.com/a4305bbb-8ef8-4570-8bf2-48ea79029197/">
  
- ###### user profile
- <img src=""> 
+ ###### Rating of a post
+ <img src="https://ucarecdn.com/fa9f5724-d815-4c55-b5a0-414dbc727d02/"> 
 
 
  
@@ -66,7 +66,12 @@ python manage.py makemigrations instagram
 ```
 Open the application on your browser `127.0.0.1:8000`.  
   
-  
+ ### Api Endpoints
+ * https://chawwards.herokuapp.com/api/users/
+ * https://chawwards.herokuapp.com/api/profile/
+ * https://chawwards.herokuapp.com/api/posts/
+ 
+ 
 ## Technology used  
   
 * [Python3.6](https://www.python.org/)  
