@@ -39,9 +39,21 @@ class Post(models.Model):
     def __str__(self):
         return f'{self.title}'
 
+    def delete_post(self):
+        self.delete()
+
     @classmethod
     def search_project(cls, title):
         return cls.objects.filter(title__icontains=title).all()
+
+    @classmethod
+    def all_posts(cls):
+        return cls.objects.all()
+
+    def save_post(self):
+        self.save()
+
+
 
 
 class Rating(models.Model):
@@ -68,7 +80,7 @@ class Rating(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, related_name='rater')
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='ratings', null=True)
 
-    def save_comment(self):
+    def save_rating(self):
         self.save()
 
     @classmethod
